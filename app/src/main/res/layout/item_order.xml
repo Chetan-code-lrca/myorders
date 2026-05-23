@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="3dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/colorCardBorder"
+    app:cardBackgroundColor="@color/colorSurface">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Truck icon -->
+        <ImageView
+            android:id="@+id/ivTruck"
+            android:layout_width="72dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_truck"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- Vehicle type -->
+        <TextView
+            android:id="@+id/tvVehicleType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/ivTruck"
+            app:layout_constraintStart_toEndOf="@id/ivTruck"
+            app:layout_constraintEnd_toStartOf="@id/tvPrice"/>
+
+        <!-- Date and Order ID -->
+        <TextView
+            android:id="@+id/tvDateOrderId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/tvVehicleType"
+            app:layout_constraintStart_toEndOf="@id/ivTruck"
+            app:layout_constraintEnd_toStartOf="@id/tvPrice"/>
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnMore"/>
+
+        <!-- 3-dot menu -->
+        <ImageButton
+            android:id="@+id/btnMore"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_more_vert"
+            android:contentDescription="More options"
+            android:scaleType="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Divider line -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintTop_toBottomOf="@id/ivTruck"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Pickup pin -->
+        <ImageView
+            android:id="@+id/ivPickupPin"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_pickup_pin"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- Pickup address -->
+        <TextView
+            android:id="@+id/tvPickupAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="13sp"
+            android:maxLines="2"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toEndOf="@id/ivPickupPin"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Drop pin -->
+        <ImageView
+            android:id="@+id/ivDropPin"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/ic_drop_pin"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toBottomOf="@id/tvPickupAddress"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- Drop address -->
+        <TextView
+            android:id="@+id/tvDropAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="13sp"
+            android:maxLines="2"
+            app:layout_constraintTop_toBottomOf="@id/tvPickupAddress"
+            app:layout_constraintStart_toEndOf="@id/ivDropPin"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Bottom divider -->
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintTop_toBottomOf="@id/tvDropAddress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Status badge (e.g. CANCELLED) -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- Invoice button -->
+        <Button
+            android:id="@+id/btnInvoice"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_invoice"
+            android:textSize="12sp"
+            android:textColor="@color/colorTextPrimary"
+            android:drawableStart="@drawable/ic_download"
+            android:drawablePadding="4dp"
+            android:background="@drawable/bg_button_outline"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:stateListAnimator="@null"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            app:layout_constraintEnd_toStartOf="@id/btnBookAgain"/>
+
+        <!-- Book Again button -->
+        <Button
+            android:id="@+id/btnBookAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/label_book_again"
+            android:textSize="12sp"
+            android:textColor="@color/colorOnPrimary"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_primary"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:stateListAnimator="@null"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

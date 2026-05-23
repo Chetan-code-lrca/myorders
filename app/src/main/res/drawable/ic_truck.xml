@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="75">
+    <!-- Truck body -->
+    <path android:fillColor="#FFC300"
+        android:pathData="M5,20 L5,55 L95,55 L95,35 L75,20 Z"/>
+    <!-- Cab -->
+    <path android:fillColor="#E6A800"
+        android:pathData="M75,20 L95,20 L95,55 L75,55 Z"/>
+    <!-- Windshield -->
+    <path android:fillColor="#B8E0F7"
+        android:pathData="M77,23 L93,23 L93,38 L77,38 Z"/>
+    <!-- Wheels -->
+    <path android:fillColor="#333333"
+        android:pathData="M 12,58 a 8,8 0 1,0 16,0 a 8,8 0 1,0 -16,0"/>
+    <path android:fillColor="#666666"
+        android:pathData="M 16,58 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0"/>
+    <path android:fillColor="#333333"
+        android:pathData="M 72,58 a 8,8 0 1,0 16,0 a 8,8 0 1,0 -16,0"/>
+    <path android:fillColor="#666666"
+        android:pathData="M 76,58 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0"/>
+    <!-- Stripes on body -->
+    <path android:fillColor="#E6A800"
+        android:pathData="M5,20 L75,20 L75,24 L5,24 Z"/>
+</vector>

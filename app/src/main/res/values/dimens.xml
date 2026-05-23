@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_horizontal_padding">20dp</dimen>
+    <dimen name="card_margin_horizontal">12dp</dimen>
+    <dimen name="card_margin_vertical">6dp</dimen>
+    <dimen name="card_corner_radius">14dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="truck_icon_size">64dp</dimen>
+    <dimen name="pin_icon_size">14dp</dimen>
+    <dimen name="tab_height">36dp</dimen>
+    <dimen name="search_height">48dp</dimen>
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <dimen name="status_badge_corner">4dp</dimen>
+    <dimen name="text_price">17sp</dimen>
+    <dimen name="text_vehicle_type">15sp</dimen>
+    <dimen name="text_secondary">12sp</dimen>
+    <dimen name="text_address">13sp</dimen>
+    <dimen name="text_status_badge">11sp</dimen>
+</resources>

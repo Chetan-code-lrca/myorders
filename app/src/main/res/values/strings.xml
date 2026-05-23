@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyOrders</string>
+    <string name="title_my_orders">My Orders</string>
+    <string name="subtitle_my_orders">View your completed trips here. You can download invoices or quickly book the same order again.</string>
+
+    <!-- Tabs -->
+    <string name="tab_all">All Orders</string>
+    <string name="tab_completed">Completed</string>
+    <string name="tab_cancelled">Cancelled</string>
+    <string name="tab_booked_again">Booked Again</string>
+
+    <!-- Search -->
+    <string name="hint_search">Search by Order ID / Location</string>
+    <string name="label_filter">Filter</string>
+    <string name="label_sort">Sort</string>
+
+    <!-- Order card -->
+    <string name="label_invoice">Invoice</string>
+    <string name="label_book_again">Book Again</string>
+    <string name="label_help">Help</string>
+
+    <!-- Status -->
+    <string name="status_cancelled">CANCELLED</string>
+    <string name="status_completed">COMPLETED</string>
+    <string name="status_booked_again">BOOKED AGAIN</string>
+
+    <!-- Info banner -->
+    <string name="info_banner_line1">यहाँ आपके सभी पिछले ऑर्डर दिखाए गए हैं।</string>
+    <string name="info_banner_line2">आप इनवॉइस डाउनलोड कर सकते हैं या उसी पते पर दोबारा ऑर्डर कर सकते हैं।</string>
+
+    <!-- Bottom Nav -->
+    <string name="nav_home">Home</string>
+    <string name="nav_orders">Orders</string>
+    <string name="nav_payments">Payments</string>
+    <string name="nav_account">Account</string>
+
+    <!-- Popup menu -->
+    <string name="menu_view_details">View Details</string>
+    <string name="menu_share">Share Order</string>
+    <string name="menu_report">Report Issue</string>
+
+    <!-- Toasts -->
+    <string name="toast_invoice_downloading">Downloading invoice…</string>
+    <string name="toast_booking_again">Booking again…</string>
+    <string name="toast_help">Help center coming soon</string>
+    <string name="toast_filter">Filter coming soon</string>
+    <string name="toast_sort">Sort coming soon</string>
+</resources>
