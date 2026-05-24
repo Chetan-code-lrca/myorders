@@ -49,6 +49,14 @@ class OrdersFragment : Fragment() {
             "Gulab Bagh, Udaipur",
             "Sajjangarh Monsoon Palace, Udaipur, Rajasthan 313001, India",
             560.0, OrderStatus.BOOKED_AGAIN),
+        Order("7", "Two Wheeler", "02 Feb, 9:15 AM", "#ORD12342",
+            "Shakti Nagar, Udaipur",
+            "Saheliyon-ki-Bari, Udaipur, Rajasthan 313001, India",
+            85.0, OrderStatus.COMPLETED),
+        Order("8", "Two Wheeler", "01 Feb, 6:30 PM", "#ORD12341",
+            "Mulla Talai, Udaipur",
+            "Lake Pichola, Udaipur, Rajasthan 313001, India",
+            110.0, OrderStatus.COMPLETED),
     )
 
     private var currentTabFilter: OrderStatus? = null  // null = All Orders

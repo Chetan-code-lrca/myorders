@@ -16,9 +16,9 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Truck icon -->
+        <!-- Vehicle icon -->
         <ImageView
-            android:id="@+id/ivTruck"
+            android:id="@+id/ivVehicle"
             android:layout_width="72dp"
             android:layout_height="56dp"
             android:src="@drawable/ic_truck"
@@ -36,8 +36,8 @@
             android:textColor="@color/colorTextPrimary"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@id/ivTruck"
-            app:layout_constraintStart_toEndOf="@id/ivTruck"
+            app:layout_constraintTop_toTopOf="@id/ivVehicle"
+            app:layout_constraintStart_toEndOf="@id/ivVehicle"
             app:layout_constraintEnd_toStartOf="@id/tvPrice"/>
 
         <!-- Date and Order ID -->
@@ -50,7 +50,7 @@
             android:textColor="@color/colorTextSecondary"
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/tvVehicleType"
-            app:layout_constraintStart_toEndOf="@id/ivTruck"
+            app:layout_constraintStart_toEndOf="@id/ivVehicle"
             app:layout_constraintEnd_toStartOf="@id/tvPrice"/>
 
         <!-- Price -->
@@ -83,7 +83,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
             android:background="@color/colorDivider"
-            app:layout_constraintTop_toBottomOf="@id/ivTruck"
+            app:layout_constraintTop_toBottomOf="@id/ivVehicle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

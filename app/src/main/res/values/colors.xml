@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand -->
-    <color name="colorPrimary">#FFC300</color>
-    <color name="colorPrimaryDark">#E6B000</color>
-    <color name="colorOnPrimary">#1A1A1A</color>
-    <color name="colorAccent">#FFC300</color>
+    <!-- Brand - Switched from Yellow to Green -->
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#1B5E20</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorAccent">#4CAF50</color>
 
     <!-- Backgrounds -->
     <color name="colorBackground">#F5F5F5</color>
     <color name="colorSurface">#FFFFFF</color>
     <color name="colorSearchBg">#F2F2F2</color>
-    <color name="colorInfoBannerBg">#EEEDF8</color>
-    <color name="colorInfoBannerIconBg">#D5D3F0</color>
+    <color name="colorInfoBannerBg">#E8F5E9</color>
+    <color name="colorInfoBannerIconBg">#C8E6C9</color>
     <color name="colorDivider">#EBEBEB</color>
 
     <!-- Text -->
@@ -33,7 +33,7 @@
     <color name="colorDropPin">#F44336</color>
 
     <!-- Bottom Nav -->
-    <color name="colorNavActive">#FFC300</color>
+    <color name="colorNavActive">#2E7D32</color>
     <color name="colorNavInactive">#999999</color>
 
     <!-- Misc -->

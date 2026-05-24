@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    <!-- Wheel Back -->
+    <path
+        android:fillColor="#333333"
+        android:pathData="M35,90m-10,0a10,10 0,1 1,20,0a10,10 0,1 1,-20,0"/>
+    <!-- Wheel Front -->
+    <path
+        android:fillColor="#333333"
+        android:pathData="M85,90m-10,0a10,10 0,1 1,20,0a10,10 0,1 1,-20,0"/>
+    <!-- Scooter Body -->
+    <path
+        android:fillColor="#2E7D32"
+        android:pathData="M25,80 L80,80 L85,45 L75,40 L70,80 Z"/>
+    <path
+        android:fillColor="#2E7D32"
+        android:pathData="M25,80 Q20,80 20,70 L20,50 Q20,40 30,40 L45,40 L45,55 L25,55 Z"/>
+    <!-- Handle -->
+    <path
+        android:strokeColor="#333333"
+        android:strokeWidth="3"
+        android:pathData="M80,45 L85,30 L75,30"/>
+</vector>

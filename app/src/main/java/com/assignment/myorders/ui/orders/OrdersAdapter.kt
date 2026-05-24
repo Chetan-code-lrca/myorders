@@ -39,6 +39,14 @@ class OrdersAdapter(
             tvDropAddress.text = order.dropAddress
             tvPrice.text = "₹ ${order.amount}"
 
+            // Set vehicle icon
+            val iconRes = if (order.vehicleType.contains("Two", ignoreCase = true)) {
+                R.drawable.ic_scooter
+            } else {
+                R.drawable.ic_truck
+            }
+            ivVehicle.setImageResource(iconRes)
+
             applyStatusStyle(order.status)
 
             // Invoice click
