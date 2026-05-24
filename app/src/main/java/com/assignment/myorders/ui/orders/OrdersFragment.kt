@@ -23,31 +23,31 @@ class OrdersFragment : Fragment() {
 
     private lateinit var adapter: OrdersAdapter
 
-    // Simulated order data matching the reference screenshot
-    private val allOrders = listOf(
+    // Simulated order data with local Udaipur areas
+    private val allOrders = mutableListOf(
         Order("1", "Four Wheeler", "05 Feb, 4:46 PM", "#ORD12345",
-            "741, Gumanwara",
-            "00, Main Rd, Shivaji Nagar, Jhansi, Uttar Pradesh 284001, India",
+            "Chetak Circle, Udaipur",
+            "Fatehsagar Lake, Rani Rd, Udaipur, Rajasthan 313001, India",
             229.0, OrderStatus.CANCELLED),
         Order("2", "Four Wheeler", "05 Feb, 4:46 PM", "#ORD12346",
-            "741, Gumanwara",
-            "00, Main Rd, Shivaji Nagar, Jhansi, Uttar Pradesh 284001, India",
+            "Surajpole, Udaipur",
+            "City Palace, Old City, Udaipur, Rajasthan 313001, India",
             229.0, OrderStatus.CANCELLED),
         Order("3", "Four Wheeler", "05 Feb, 4:46 PM", "#ORD12347",
-            "332, Gumanwara",
-            "GC72+GGV, Kamrari, Madhya Pradesh 475661, India",
+            "Hiran Magri Sector 4, Udaipur",
+            "Badi Lake, Udaipur, Rajasthan 313011, India",
             1515.0, OrderStatus.CANCELLED),
         Order("4", "Four Wheeler", "05 Feb, 4:46 PM", "#ORD12348",
-            "332, Gumanwara",
-            "GC72+GGV, Kamrari, Madhya Pradesh 475661, India",
+            "Pratap Nagar, Udaipur",
+            "Udaipur Railway Station, City Station Rd, Udaipur, Rajasthan 313001, India",
             1634.0, OrderStatus.COMPLETED),
         Order("5", "Four Wheeler", "04 Feb, 2:30 PM", "#ORD12344",
-            "MG Road, Indore",
-            "Airport, Indore, Madhya Pradesh 452001, India",
+            "Panchwati, Udaipur",
+            "Maharana Pratap Airport, Dabok, Rajasthan 313022, India",
             980.0, OrderStatus.COMPLETED),
         Order("6", "Four Wheeler", "03 Feb, 11:00 AM", "#ORD12343",
-            "Railway Station, Bhopal",
-            "AIIMS, Bhopal, Madhya Pradesh 462024, India",
+            "Gulab Bagh, Udaipur",
+            "Sajjangarh Monsoon Palace, Udaipur, Rajasthan 313001, India",
             560.0, OrderStatus.BOOKED_AGAIN),
     )
 
@@ -79,9 +79,14 @@ class OrdersFragment : Fragment() {
                     Toast.LENGTH_SHORT).show()
             },
             onBookAgainClick = { order ->
-                Toast.makeText(context,
-                    getString(R.string.toast_booking_again) + " ${order.orderId}",
-                    Toast.LENGTH_SHORT).show()
+                val index = allOrders.indexOfFirst { it.orderId == order.orderId }
+                if (index != -1) {
+                    allOrders[index] = allOrders[index].copy(status = OrderStatus.BOOKED_AGAIN)
+                    applyFilters()
+                    Toast.makeText(context,
+                        getString(R.string.toast_booking_again) + " ${order.orderId}",
+                        Toast.LENGTH_SHORT).show()
+                }
             },
             onMenuClick = { order, itemId ->
                 when (itemId) {
@@ -145,7 +150,7 @@ class OrdersFragment : Fragment() {
     }
 
     private fun applyFilters() {
-        var filtered = allOrders
+        var filtered: List<Order> = allOrders.toList()
 
         // Apply tab filter
         if (currentTabFilter != null) {

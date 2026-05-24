@@ -42,8 +42,28 @@
 
     <!-- Toasts -->
     <string name="toast_invoice_downloading">Downloading invoice…</string>
-    <string name="toast_booking_again">Booking again…</string>
+    <string name="toast_booking_again">Booking again…!</string>
     <string name="toast_help">Help center coming soon</string>
     <string name="toast_filter">Filter coming soon</string>
     <string name="toast_sort">Sort coming soon</string>
+
+    <!-- Home Page -->
+    <string name="home_greeting">Hello, Chetan Inaganti!</string>
+    <string name="home_stats_title">Your Activity in Udaipur</string>
+    <string name="home_total_orders">Total Orders: 12</string>
+    <string name="home_total_spent">Total Spent: ₹14,500</string>
+    <string name="home_promo_title">Special Offer</string>
+    <string name="home_promo_desc">Get 20% off on your next trip to Fatehsagar Lake!</string>
+
+    <!-- Payments Page -->
+    <string name="payments_wallet_title">Wallet Balance</string>
+    <string name="payments_balance">₹1,240.50</string>
+    <string name="payments_saved_cards">Saved Payment Methods</string>
+    <string name="payments_recent_title">Recent Transactions</string>
+
+    <!-- Account Page -->
+    <string name="account_profile_name">Chetan Inaganti</string>
+    <string name="account_profile_phone">+91 98765 43210</string>
+    <string name="account_settings">App Settings</string>
+    <string name="account_logout">Logout</string>
 </resources>

@@ -38,32 +38,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
-            val fragment: Fragment = when (item.itemId) {
-                R.id.nav_home -> homeFragment
-                R.id.nav_orders -> ordersFragment
-                R.id.nav_payments -> paymentsFragment
-                R.id.nav_account -> accountFragment
+            val (fragment, tag) = when (item.itemId) {
+                R.id.nav_home -> homeFragment to "Home"
+                R.id.nav_orders -> ordersFragment to "Orders"
+                R.id.nav_payments -> paymentsFragment to "Payments"
+                R.id.nav_account -> accountFragment to "Account"
                 else -> return@setOnItemSelectedListener false
             }
-            switchFragment(fragment)
+            switchFragment(fragment, tag)
             true
         }
     }
 
-    private fun switchFragment(fragment: Fragment) {
-        val tag = fragment::class.java.simpleName
+    private fun switchFragment(fragment: Fragment, tag: String) {
+        val transaction = supportFragmentManager.beginTransaction()
+
+        // Hide all fragments currently in the manager
+        supportFragmentManager.fragments.forEach { transaction.hide(it) }
+
         val existing = supportFragmentManager.findFragmentByTag(tag)
-
-        supportFragmentManager.beginTransaction().apply {
-            // Hide all current fragments
-            supportFragmentManager.fragments.forEach { hide(it) }
-
-            if (existing != null) {
-                show(existing)
-            } else {
-                add(R.id.fragmentContainer, fragment, tag)
-            }
-            commit()
+        if (existing != null) {
+            transaction.show(existing)
+        } else {
+            transaction.add(R.id.fragmentContainer, fragment, tag)
         }
+        transaction.commit()
     }
 }
