@@ -32,7 +32,7 @@ Whether you're using it as a starter project, learning resource, or production b
 ## 🛠 Tech Stack
 
 - **Language:** Kotlin
-- **IDE Support:** IntelliJ IDEA / Android Studio
+- **IDE Support:** IntelliJ IDEA / Android Studio(Recommended)
 - **Version Control:** Git + GitHub
 
 ---
@@ -74,7 +74,7 @@ myorders/
 
 ## 🤝 Contributing
 
-Contributions are welcome and appreciated.
+Contributions are welcome.
 
 If you'd like to improve this project:
 
@@ -82,24 +82,6 @@ If you'd like to improve this project:
 2. Create a feature branch
 3. Commit your changes
 4. Open a pull request
-
----
-
-## 🌟 Roadmap Ideas
-
-Here are a few possible enhancements for the project:
-
-- Add order creation and tracking flows
-- Integrate a local database
-- Add unit and UI tests
-- Improve architecture and modularization
-- Add CI/CD workflows
-
----
-
-## 📄 License
-
-Add your preferred license here (for example: MIT, Apache 2.0, etc.).
 
 ---
 
