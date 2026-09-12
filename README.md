@@ -1,92 +1,83 @@
 # MyOrders
 
-<div align="center">
+An Android order-history UI built with Kotlin. The current app focuses on the orders screen and uses local sample data to demonstrate filtering, search, status tabs, and order actions.
 
-![Kotlin](https://img.shields.io/badge/Kotlin-100%25-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
-![Status](https://img.shields.io/badge/status-active-22c55e?style=for-the-badge)
-![Contributions](https://img.shields.io/badge/contributions-welcome-3b82f6?style=for-the-badge)
+## What is implemented
 
-*A clean, modern Kotlin project for managing orders.*
+- Bottom navigation with Home, Orders, Payments, and Account sections
+- Orders list with Completed, Cancelled, Booked Again, and All filters
+- Search by order ID or pickup/drop address
+- Empty-state handling when no orders match the current filters
+- Order actions for invoice, booking again, details, sharing, and reporting
+- Material-based Android UI using XML layouts and View Binding
 
-</div>
+The Home, Payments, and Account tabs currently use placeholder fragments. The order data is stored in memory and is not connected to a backend or payment service.
 
----
+## Tech stack
 
-## ✨ Overview
+- Kotlin
+- Android SDK 34
+- AndroidX AppCompat
+- Material Components
+- RecyclerView
+- Fragment KTX
+- View Binding
+- Gradle
 
-**MyOrders** is a Kotlin-based project designed to provide a solid foundation for building and managing an order-related application.
+The app module uses `minSdk 24`, `targetSdk 34`, and Java/Kotlin 17.
 
-Whether you're using it as a starter project, learning resource, or production base, this repository is structured to be simple, readable, and easy to extend.
+## Run locally
 
----
+### Requirements
 
-## 🚀 Features
+- Android Studio
+- JDK 17
+- Android SDK Platform 34
 
-- Built with **Kotlin**
-- Clean and minimal project structure
-- Easy to open and run in a Kotlin/Android-friendly IDE
-- Ready for customization and future enhancements
-
----
-
-## 🛠 Tech Stack
-
-- **Language:** Kotlin
-- **IDE Support:** IntelliJ IDEA / Android Studio(Recommended)
-- **Version Control:** Git + GitHub
-
----
-
-## 📦 Getting Started
-
-### 1. Clone the repository
+### Clone
 
 ```bash
 git clone https://github.com/Chetan-code-lrca/myorders.git
 cd myorders
 ```
 
-### 2. Open in your IDE
+Open the project in Android Studio and let Gradle sync.
 
-Open the project in one of the following:
-- **IntelliJ IDEA**
-- **Android Studio**
+### Run
 
-### 3. Build and run
+Select the `app` configuration and run it on an Android emulator or a physical device running Android 7.0 (API 24) or newer.
 
-Build and run the project according to your local environment and project setup.
+### Build
 
----
+Use Android Studio's **Build → Make Project** or build the `app` module from the Gradle tool window.
 
-## 📁 Project Structure
+The repository does not include a Gradle wrapper, so Android Studio is the recommended build environment.
+
+## Project structure
 
 ```text
 myorders/
-├── app/                 # Application source (if applicable)
-├── src/                 # Kotlin source files
-├── README.md            # Project documentation
-└── ...
+├── app/
+│   ├── src/main/java/com/assignment/myorders/
+│   │   ├── MainActivity.kt
+│   │   ├── model/
+│   │   └── ui/
+│   │       ├── orders/
+│   │       └── placeholder/
+│   ├── build.gradle.kts
+│   └── src/main/AndroidManifest.xml
+├── gradle/
+├── settings.gradle.kts
+├── build.gradle.kts
+└── README.md
 ```
 
-> Update this section as the project structure grows.
+## Notes
 
----
+The sample orders in the app are hard-coded for UI testing. Actions such as downloading an invoice, sharing an order, reporting an order, and booking again currently provide local UI feedback rather than calling external services.
 
-## 🤝 Contributing
+No API keys, login credentials, or external service configuration are required to run the current version.
 
-Contributions are welcome.
+## Tests
 
-If you'd like to improve this project:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a pull request
-
----
-
-<div align="center">
-
-Made with ❤️ using **Kotlin**
-
-</div>
+The repository contains Android instrumentation test scaffolding. Tests can be run from Android Studio through the Android test configuration.
