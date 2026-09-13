@@ -26,7 +26,7 @@ The Home, Payments, and Account sections are currently placeholders. Orders are 
 - Fragment KTX
 - View Binding
 
-The application module uses `minSdk 24`, `targetSdk 34`, and Java/Kotlin 17. fileciteturn875file0 fileciteturn876file0 fileciteturn877file0
+The application module uses `minSdk 24`, `targetSdk 34`, and Java/Kotlin 17.
 
 ## Requirements
 
@@ -36,7 +36,7 @@ Install:
 - JDK 17
 - An Android emulator or physical device running Android 7.0 (API 24) or newer
 
-The repository includes the Gradle wrapper, so a system-wide Gradle installation is not required. fileciteturn877file0
+The repository includes the Gradle wrapper, so a system-wide Gradle installation is not required.
 
 ## Run locally
 
@@ -67,10 +67,15 @@ To launch the app from Android Studio, select the `app` run configuration and ch
 
 ## Testing
 
-Run the local unit and Android test tasks with the Gradle wrapper:
+Run the unit tests with:
 
 ```bash
 ./gradlew test
+```
+
+Run Android instrumentation tests on a connected device or emulator with:
+
+```bash
 ./gradlew connectedAndroidTest
 ```
 
@@ -80,8 +85,6 @@ On Windows:
 .\gradlew.bat test
 .\gradlew.bat connectedAndroidTest
 ```
-
-The project is configured with JUnit and AndroidX Espresso test dependencies. fileciteturn875file0 fileciteturn876file0
 
 ## Project structure
 
@@ -118,4 +121,4 @@ No API keys, login credentials, or external service configuration are required f
 
 ## Build details
 
-The project uses Gradle 9.3.1 through the checked-in wrapper and Android Gradle Plugin 8.3.1. The application module targets SDK 34 and uses Java/Kotlin 17. fileciteturn877file0 fileciteturn876file0 fileciteturn875file0
+The project uses the Gradle wrapper with Gradle 9.3.1 and Android Gradle Plugin 8.3.1. The application module targets Android SDK 34 and uses Java/Kotlin 17.
