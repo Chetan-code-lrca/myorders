@@ -1,57 +1,87 @@
 # MyOrders
 
-An Android order-history UI built with Kotlin. The current app focuses on the orders screen and uses local sample data to demonstrate filtering, search, status tabs, and order actions.
+MyOrders is an Android app that recreates an order-history screen with Kotlin and AndroidX. The current version is focused on the Orders experience: browsing sample orders, filtering them by status, searching, and opening the available order actions.
 
-## What is implemented
+## Features
 
-- Bottom navigation with Home, Orders, Payments, and Account sections
-- Orders list with Completed, Cancelled, Booked Again, and All filters
+- Orders list with **All**, **Completed**, **Cancelled**, and **Booked Again** filters
 - Search by order ID or pickup/drop address
-- Empty-state handling when no orders match the current filters
+- Empty states when no orders match the current search or filter
 - Order actions for invoice, booking again, details, sharing, and reporting
-- Material-based Android UI using XML layouts and View Binding
+- Bottom navigation for Home, Orders, Payments, and Account
+- Material-based Android UI with View Binding
 
-The Home, Payments, and Account tabs currently use placeholder fragments. The order data is stored in memory and is not connected to a backend or payment service.
+The Home, Payments, and Account sections are currently placeholders. Orders are backed by local sample data, so there is no server-side order history, payment processing, or user account system in the current version.
 
 ## Tech stack
 
-- Kotlin
+- Kotlin 1.9.23
+- Android Gradle Plugin 8.3.1
+- Gradle 9.3.1
 - Android SDK 34
 - AndroidX AppCompat
 - Material Components
 - RecyclerView
+- ConstraintLayout
 - Fragment KTX
 - View Binding
-- Gradle
 
-The app module uses `minSdk 24`, `targetSdk 34`, and Java/Kotlin 17.
+The application module uses `minSdk 24`, `targetSdk 34`, and Java/Kotlin 17. fileciteturn875file0 fileciteturn876file0 fileciteturn877file0
+
+## Requirements
+
+Install:
+
+- Android Studio with Android SDK Platform 34
+- JDK 17
+- An Android emulator or physical device running Android 7.0 (API 24) or newer
+
+The repository includes the Gradle wrapper, so a system-wide Gradle installation is not required. fileciteturn877file0
 
 ## Run locally
 
-### Requirements
-
-- Android Studio
-- JDK 17
-- Android SDK Platform 34
-
-### Clone
+Clone the repository:
 
 ```bash
 git clone https://github.com/Chetan-code-lrca/myorders.git
 cd myorders
 ```
 
-Open the project in Android Studio and let Gradle sync.
+Open the project in Android Studio and allow Gradle to sync.
 
-### Run
+### Linux / macOS
 
-Select the `app` configuration and run it on an Android emulator or a physical device running Android 7.0 (API 24) or newer.
+```bash
+./gradlew assembleDebug
+./gradlew installDebug
+```
 
-### Build
+### Windows PowerShell
 
-Use Android Studio's **Build → Make Project** or build the `app` module from the Gradle tool window.
+```powershell
+.\gradlew.bat assembleDebug
+.\gradlew.bat installDebug
+```
 
-The repository does not include a Gradle wrapper, so Android Studio is the recommended build environment.
+To launch the app from Android Studio, select the `app` run configuration and choose an emulator or connected Android device.
+
+## Testing
+
+Run the local unit and Android test tasks with the Gradle wrapper:
+
+```bash
+./gradlew test
+./gradlew connectedAndroidTest
+```
+
+On Windows:
+
+```powershell
+.\gradlew.bat test
+.\gradlew.bat connectedAndroidTest
+```
+
+The project is configured with JUnit and AndroidX Espresso test dependencies. fileciteturn875file0 fileciteturn876file0
 
 ## Project structure
 
@@ -64,20 +94,28 @@ myorders/
 │   │   └── ui/
 │   │       ├── orders/
 │   │       └── placeholder/
+│   ├── src/main/res/
 │   ├── build.gradle.kts
 │   └── src/main/AndroidManifest.xml
 ├── gradle/
-├── settings.gradle.kts
+│   ├── libs.versions.toml
+│   └── wrapper/
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
 ├── build.gradle.kts
+├── settings.gradle.kts
 └── README.md
 ```
 
-## Notes
+## Current scope
 
-The sample orders in the app are hard-coded for UI testing. Actions such as downloading an invoice, sharing an order, reporting an order, and booking again currently provide local UI feedback rather than calling external services.
+This repository is primarily an Android UI implementation. The order records are hard-coded sample data used to demonstrate the interface and interactions.
 
-No API keys, login credentials, or external service configuration are required to run the current version.
+The order actions currently provide local UI feedback rather than calling external order, invoice, sharing, reporting, or payment services.
 
-## Tests
+No API keys, login credentials, or external service configuration are required for the current application.
 
-The repository contains Android instrumentation test scaffolding. Tests can be run from Android Studio through the Android test configuration.
+## Build details
+
+The project uses Gradle 9.3.1 through the checked-in wrapper and Android Gradle Plugin 8.3.1. The application module targets SDK 34 and uses Java/Kotlin 17. fileciteturn877file0 fileciteturn876file0 fileciteturn875file0
