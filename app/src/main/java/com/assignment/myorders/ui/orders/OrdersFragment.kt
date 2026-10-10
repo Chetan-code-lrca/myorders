@@ -15,6 +15,7 @@ import com.assignment.myorders.R
 import com.assignment.myorders.databinding.FragmentOrdersBinding
 import com.assignment.myorders.model.Order
 import com.assignment.myorders.model.OrderStatus
+import com.assignment.myorders.model.OrderFilters
 
 class OrdersFragment : Fragment() {
 
@@ -158,22 +159,11 @@ class OrdersFragment : Fragment() {
     }
 
     private fun applyFilters() {
-        var filtered: List<Order> = allOrders.toList()
-
-        // Apply tab filter
-        if (currentTabFilter != null) {
-            filtered = filtered.filter { it.status == currentTabFilter }
-        }
-
-        // Apply search filter
-        if (currentSearchQuery.isNotEmpty()) {
-            val query = currentSearchQuery.lowercase()
-            filtered = filtered.filter { order ->
-                order.orderId.lowercase().contains(query) ||
-                order.pickupAddress.lowercase().contains(query) ||
-                order.dropAddress.lowercase().contains(query)
-            }
-        }
+        val filtered = OrderFilters.filter(
+            orders = allOrders,
+            status = currentTabFilter,
+            query = currentSearchQuery
+        )
 
         adapter.submitList(filtered)
 
