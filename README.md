@@ -6,6 +6,8 @@ MyOrders is an Android app that recreates an order-history screen with Kotlin an
 
 - Orders list with **All**, **Completed**, **Cancelled**, and **Booked Again** filters
 - Search by order ID or pickup/drop address
+- Filter orders by vehicle category (Two Wheeler / Four Wheeler)
+- Sort the visible results by amount (low-to-high or high-to-low)
 - Empty states when no orders match the current search or filter
 - Order actions for invoice, booking again, details, sharing, and reporting
 - Bottom navigation for Home, Orders, Payments, and Account
@@ -115,7 +117,7 @@ myorders/
 
 This repository is primarily an Android UI implementation. The order records are hard-coded sample data used to demonstrate the interface and interactions.
 
-The order actions currently provide local UI feedback rather than calling external order, invoice, sharing, reporting, or payment services.
+The order actions currently provide local UI feedback rather than calling external order, invoice, sharing, reporting, or payment services. Booking Again changes only the sample item's in-memory status; it does not place a booking. These controls are demo interactions, not a transport or payment service.
 
 No API keys, login credentials, or external service configuration are required for the current application.
 

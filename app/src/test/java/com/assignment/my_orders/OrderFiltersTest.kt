@@ -83,4 +83,49 @@ class OrderFiltersTest {
             )
         )
     }
+    @Test
+    fun vehicleFilterReturnsOnlyMatchingVehicleType() {
+        assertEquals(
+            listOf(orders[0], orders[2]),
+            OrderFilters.filter(orders, vehicleType = "four wheeler")
+        )
+        assertEquals(
+            listOf(orders[1]),
+            OrderFilters.filter(orders, vehicleType = "Two Wheeler")
+        )
+    }
+
+    @Test
+    fun vehicleFilterComposesWithStatusAndSearch() {
+        assertEquals(
+            listOf(orders[1]),
+            OrderFilters.filter(
+                orders,
+                status = OrderStatus.COMPLETED,
+                query = "airport",
+                vehicleType = "Two Wheeler"
+            )
+        )
+        assertEquals(
+            emptyList<Order>(),
+            OrderFilters.filter(
+                orders,
+                status = OrderStatus.CANCELLED,
+                vehicleType = "Two Wheeler"
+            )
+        )
+    }
+
+    @Test
+    fun amountSortIsAscendingAndDescending() {
+        assertEquals(
+            listOf(orders[1], orders[0], orders[2]),
+            OrderFilters.sortByAmount(orders, ascending = true)
+        )
+        assertEquals(
+            listOf(orders[2], orders[0], orders[1]),
+            OrderFilters.sortByAmount(orders, ascending = false)
+        )
+    }
+
 }

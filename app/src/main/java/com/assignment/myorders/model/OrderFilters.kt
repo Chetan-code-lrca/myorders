@@ -12,7 +12,8 @@ object OrderFilters {
     fun filter(
         orders: List<Order>,
         status: OrderStatus? = null,
-        query: String = ""
+        query: String = "",
+        vehicleType: String? = null
     ): List<Order> {
         val normalizedQuery = query.trim().lowercase(Locale.ROOT)
 
@@ -23,7 +24,13 @@ object OrderFilters {
                 order.pickupAddress.lowercase(Locale.ROOT).contains(normalizedQuery) ||
                 order.dropAddress.lowercase(Locale.ROOT).contains(normalizedQuery)
 
-            matchesStatus && matchesQuery
+            val matchesVehicle = vehicleType == null ||
+                order.vehicleType.equals(vehicleType, ignoreCase = true)
+
+            matchesStatus && matchesQuery && matchesVehicle
         }
     }
+
+    fun sortByAmount(orders: List<Order>, ascending: Boolean): List<Order> =
+        if (ascending) orders.sortedBy { it.amount } else orders.sortedByDescending { it.amount }
 }
