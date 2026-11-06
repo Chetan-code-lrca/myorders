@@ -3,6 +3,7 @@ package com.assignment.myorders.ui.orders
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.PopupMenu
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,6 +63,8 @@ class OrdersFragment : Fragment() {
 
     private var currentTabFilter: OrderStatus? = null  // null = All Orders
     private var currentSearchQuery: String = ""
+    private var currentVehicleType: String? = null
+    private var currentAmountSortAscending: Boolean? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,28 +86,32 @@ class OrdersFragment : Fragment() {
     private fun setupRecyclerView() {
         adapter = OrdersAdapter(
             onInvoiceClick = { order ->
-                Toast.makeText(context,
-                    getString(R.string.toast_invoice_downloading) + " ${order.orderId}",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    "Demo only: invoice download is not connected (${order.orderId}).",
+                    Toast.LENGTH_SHORT
+                ).show()
             },
             onBookAgainClick = { order ->
                 val index = allOrders.indexOfFirst { it.orderId == order.orderId }
                 if (index != -1) {
                     allOrders[index] = allOrders[index].copy(status = OrderStatus.BOOKED_AGAIN)
                     applyFilters()
-                    Toast.makeText(context,
-                        getString(R.string.toast_booking_again) + " ${order.orderId}",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        "Demo only: status changed locally; no booking was placed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             },
             onMenuClick = { order, itemId ->
                 when (itemId) {
                     R.id.menu_view_details ->
-                        Toast.makeText(context, "Details: ${order.orderId}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Demo only: order details are not connected to a backend.", Toast.LENGTH_SHORT).show()
                     R.id.menu_share ->
-                        Toast.makeText(context, "Share: ${order.orderId}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Demo only: order sharing is not connected.", Toast.LENGTH_SHORT).show()
                     R.id.menu_report ->
-                        Toast.makeText(context, "Report: ${order.orderId}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Demo only: reporting is not connected.", Toast.LENGTH_SHORT).show()
                 }
             }
         )
@@ -162,14 +169,20 @@ class OrdersFragment : Fragment() {
         val filtered = OrderFilters.filter(
             orders = allOrders,
             status = currentTabFilter,
-            query = currentSearchQuery
+            query = currentSearchQuery,
+            vehicleType = currentVehicleType
         )
+        val ordered = when (currentAmountSortAscending) {
+            true -> OrderFilters.sortByAmount(filtered, ascending = true)
+            false -> OrderFilters.sortByAmount(filtered, ascending = false)
+            null -> filtered
+        }
 
-        adapter.submitList(filtered)
+        adapter.submitList(ordered)
 
         // Show/hide empty state
-        binding.emptyState.visibility = if (filtered.isEmpty()) View.VISIBLE else View.GONE
-        binding.rvOrders.visibility = if (filtered.isEmpty()) View.GONE else View.VISIBLE
+        binding.emptyState.visibility = if (ordered.isEmpty()) View.VISIBLE else View.GONE
+        binding.rvOrders.visibility = if (ordered.isEmpty()) View.GONE else View.VISIBLE
     }
 
     private fun setupClickListeners() {
@@ -178,15 +191,41 @@ class OrdersFragment : Fragment() {
         }
 
         binding.btnFilter.setOnClickListener {
-            Toast.makeText(context, getString(R.string.toast_filter), Toast.LENGTH_SHORT).show()
+            val popup = PopupMenu(requireContext(), binding.btnFilter)
+            popup.menu.add(0, 0, 0, "All vehicles")
+            popup.menu.add(0, 1, 1, "Two Wheeler")
+            popup.menu.add(0, 2, 2, "Four Wheeler")
+            popup.setOnMenuItemClickListener { item ->
+                currentVehicleType = when (item.itemId) {
+                    1 -> "Two Wheeler"
+                    2 -> "Four Wheeler"
+                    else -> null
+                }
+                applyFilters()
+                true
+            }
+            popup.show()
         }
 
         binding.btnSort.setOnClickListener {
-            Toast.makeText(context, getString(R.string.toast_sort), Toast.LENGTH_SHORT).show()
+            val popup = PopupMenu(requireContext(), binding.btnSort)
+            popup.menu.add(0, 0, 0, "Default order")
+            popup.menu.add(0, 1, 1, "Price: low to high")
+            popup.menu.add(0, 2, 2, "Price: high to low")
+            popup.setOnMenuItemClickListener { item ->
+                currentAmountSortAscending = when (item.itemId) {
+                    1 -> true
+                    2 -> false
+                    else -> null
+                }
+                applyFilters()
+                true
+            }
+            popup.show()
         }
 
         binding.helpFab.setOnClickListener {
-            Toast.makeText(context, getString(R.string.toast_help), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Demo only: help service is not connected.", Toast.LENGTH_SHORT).show()
         }
     }
 
