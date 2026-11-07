@@ -10,6 +10,7 @@ import com.assignment.myorders.R
 import com.assignment.myorders.databinding.ItemOrderBinding
 import com.assignment.myorders.model.Order
 import com.assignment.myorders.model.OrderStatus
+import com.assignment.myorders.model.OrderFormatters
 
 class OrdersAdapter(
     private val onInvoiceClick: (Order) -> Unit,
@@ -37,7 +38,7 @@ class OrdersAdapter(
             tvDateOrderId.text = "${order.date}  |  Order ID: ${order.orderId}"
             tvPickupAddress.text = order.pickupAddress
             tvDropAddress.text = order.dropAddress
-            tvPrice.text = "₹ ${order.amount}"
+            tvPrice.text = OrderFormatters.formatAmount(order.amount)
 
             // Set vehicle icon
             val iconRes = if (order.vehicleType.contains("Two", ignoreCase = true)) {
