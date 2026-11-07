@@ -7,6 +7,7 @@ MyOrders is an Android app that recreates an order-history screen with Kotlin an
 - Orders list with **All**, **Completed**, **Cancelled**, and **Booked Again** filters
 - Search by order ID or pickup/drop address
 - Empty states when no orders match the current search or filter
+- Order totals formatted as Indian rupees with locale-aware grouping and no unnecessary decimal zeroes
 - Order actions for invoice, booking again, details, sharing, and reporting
 - Bottom navigation for Home, Orders, Payments, and Account
 - Material-based Android UI with View Binding
